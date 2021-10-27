@@ -61,6 +61,7 @@ group :test do
   gem 'rake'
   gem 'rspec'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
