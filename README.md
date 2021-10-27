@@ -1,24 +1,37 @@
 # DCCinema
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Ruby version**: 3.0.0
 
-Things you may want to cover:
+## Configuration
+You must create an `.env` file in your root directory with the following
+variables:
+```dotenv
+## Database env vars
 
-* Ruby version
+# development
+DEV_PGDATABASE=dccinema_dev
+DEV_PGUSER=your_username
+DEV_PGPASSWORD=your_password
+DEV_PGHOST=localhost
+DEV_PGPORT=5432
 
-* System dependencies
+# test
+TEST_PGDATABASE=dccinema_test
+TEST_PGUSER=your_username
+TEST_PGPASSWORD=your_password
+TEST_PGHOST=localhost
+TEST_PGPORT=5432
+```
 
-* Configuration
 
-* Database creation
+## Database creation
+
+```shell
+rails db:create
+```
 
 * Database initialization
 
 * How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
