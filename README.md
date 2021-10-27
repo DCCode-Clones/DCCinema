@@ -5,7 +5,7 @@
 ## Configuration
 You must create an `.env` file in your project root directory with the following
 variables:
-```dotenv
+```python
 ## Database env vars
 
 # development
@@ -26,23 +26,23 @@ TEST_PGPORT=5432
 
 ## Database creation
 
-```shell
+```ruby
 rails db:create
 ```
 
 ## Database initialization
 First run migrations
-```shell
+```ruby
 rails db:migrate
 ```
 then add seeds
-```shell
+```ruby
 rails db:seed
 ```
 
 ## Database management
 Reset database (drop + create + migrate)
-```shell
+```ruby
 rails db:migrate:reset
 ```
 
