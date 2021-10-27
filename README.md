@@ -3,7 +3,7 @@
 **Ruby version**: 3.0.0
 
 ## Configuration
-You must create an `.env` file in your root directory with the following
+You must create an `.env` file in your project root directory with the following
 variables:
 ```dotenv
 ## Database env vars
