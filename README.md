@@ -30,8 +30,21 @@ TEST_PGPORT=5432
 rails db:create
 ```
 
-* Database initialization
+## Database initialization
+First run migrations
+```shell
+rails db:migrate
+```
+then add seeds
+```shell
+rails db:seed
+```
 
-* How to run the test suite
+## Database management
+Reset database (drop + create + migrate)
+```shell
+rails db:migrate:reset
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Run the test suite
+...
