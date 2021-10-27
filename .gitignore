@@ -37,3 +37,6 @@ yarn-debug.log*
 
 ## macOS
 .idea
+
+## Project Files
+.env
