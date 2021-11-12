@@ -12,4 +12,4 @@ movies = Movie.create([{ name: 'Star Wars', imgURL: "https://i.blogs.es/26ba45/s
                     { name: 'Spiderman', imgURL: "https://upload.wikimedia.org/wikipedia/commons/9/90/Spiderman.JPG", start_date: Date.current(), end_date: Date.tomorrow() }])
 
 schedules = Schedule.create([{ time: "matine", room: 1, seats: (1..48).to_a, day: Date.current(), movie: movies.first }, 
-                            { time: "matine", room: 2, seats: (1..48).to_a, day: Date.current(), movie: movies.first }])
+                            { time: "matine", room: 2, seats: (1..48).to_a, day: Date.tomorrow(), movie: movies.first }])
