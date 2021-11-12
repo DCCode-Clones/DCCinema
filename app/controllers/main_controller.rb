@@ -21,10 +21,4 @@ class MainController < ApplicationController
         @schedules_tanda = Schedule.where("day = ? AND time = ?", @selected_day, 'tanda')
         @schedules_noche = Schedule.where("day = ? AND time = ?", @selected_day, 'noche')
     end
-
-    def rooms
-        day = params[:day]
-
-    end
-
 end
