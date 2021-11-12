@@ -1,0 +1,33 @@
+<% if @movies.blank? %>
+    <div class="center-class">
+        <h1>There are not any movies currently in the cinema.</h1>
+    </div>
+<% else %>
+    <div class="center-class">
+        <h1>These are the current movies in the cinema:</h1>
+        <form action="/day" method="get">
+        <label for="day">Choose a day:</label>
+        <select name="day" id="day">
+        <% @days.each do |day| %>
+            <option value=<%= day %>><%= day %></option>
+        <% end %>
+        </select>
+        <input type="submit" value="Submit">
+        </form>
+    </div>
+
+<div class="grid-container">
+   <% @movies.each do |movie| %>
+    <div class="grid-item">
+        <%= @hola %>
+        <div class="card">
+            <img src=<%= movie.imgURL %> alt="Avatar" style="width:100%">
+            <div class="container">
+                <h4><b> <%= movie.name %> </b></h4> 
+            </div>
+        </div>
+    </div>
+   <% end %>
+</div>
+
+<% end %>

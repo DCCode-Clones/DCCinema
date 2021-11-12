@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: MyString
+  room: 1
+  seats: 1
+  day: 2021-11-10
+
+two:
+  time: MyString
+  room: 1
+  seats: 1
+  day: 2021-11-10

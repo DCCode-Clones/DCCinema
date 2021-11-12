@@ -6,3 +6,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+movies = Movie.create([{ name: 'Star Wars', imgURL: "https://i.blogs.es/26ba45/star-wars-eras/1366_2000.jpeg", start_date: Date.current(), end_date: Date.tomorrow() }, 
+                    { name: 'Los Simpsons', imgURL: "https://phantom-marca.unidadeditorial.es/ff129bbe4e38ec6dd131e989f544d6bf/resize/1320/f/jpg/assets/multimedia/imagenes/2021/03/04/16148576621458.jpg", start_date: Date.current(), end_date: Date.tomorrow() }])
+
+schedules = Schedule.create([{ time: "matine", room: 1, seats: (1..10).to_a, day: Date.current(), movie: movies.first }])
