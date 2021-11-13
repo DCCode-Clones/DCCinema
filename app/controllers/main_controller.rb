@@ -1,16 +1,19 @@
 class MainController < ApplicationController
     def index
-        @movies = Movie.all()
-        @schedules = Schedule.all()
-        start_day = @movies.map {|movie| movie.start_date }.sort.first
-        end_day = @movies.map {|movie| movie.end_date }.sort.last
-        @days = (start_day..end_day).to_a
+        @movies = Movie.all
+        @schedules = Schedule.all
+
+        unless @movies.empty?
+          start_day = @movies.map { |movie| movie.start_date }.sort.first
+          end_day = @movies.map { |movie| movie.end_date }.sort.last
+          @days = (start_day..end_day).to_a
+        end
     end
 
     def day
         @selected_day = params[:day]
-        @movies = Movie.all()
-        @schedules = Schedule.all()
+        @movies = Movie.all
+        @schedules = Schedule.all
         if @selected_day
             @movies = Movie.where("start_date <= ? AND end_date >= ?", @selected_day, @selected_day)
         end

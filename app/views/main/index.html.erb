@@ -1,12 +1,18 @@
 <div class="center-class">
     <h1> Welcome to the DCCinema </h1>
-    <h4> Select a day to see availables movies </h4>
-    <form action="/day" method="get">
-    <select name="day" id="day">
-    <% @days.each do |day| %>
-        <option value=<%= day %>><%= day %></option>
+    <% unless @movies.empty? %>
+        <h4> Select a day to see available movies </h4>
+        <form action="/day" method="get">
+            <select name="day" id="day">
+                <% @days.each do |day| %>
+                    <option value=<%= day %>><%= day %></option>
+                <% end %>
+            </select>
+            <input type="submit" value="See Movies">
+        </form>
     <% end %>
-    </select>
-    <input type="submit" value="See Movies">
-    </form>
+    <% if @movies.empty? %>
+        Currently there's no movies in DCCinema, please come back later
+    <% end %>
+
 </div>
