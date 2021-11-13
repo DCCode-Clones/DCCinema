@@ -2,9 +2,12 @@ class MainController < ApplicationController
     def index
         @movies = Movie.all()
         @schedules = Schedule.all()
-        start_day = @movies.map {|movie| movie.start_date }.sort.first
-        end_day = @movies.map {|movie| movie.end_date }.sort.last
-        @days = (start_day..end_day).to_a
+
+        unless @movies.empty?
+          start_day = @movies.map { |movie| movie.start_date }.sort.first
+          end_day = @movies.map { |movie| movie.end_date }.sort.last
+          @days = (start_day..end_day).to_a
+        end
     end
 
     def day
