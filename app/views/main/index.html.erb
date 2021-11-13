@@ -11,6 +11,8 @@
             <input type="submit" value="See Movies">
         </form>
     <% end %>
-    Currently there's no movies in DCCinema, please come back later
+    <% if @movies.empty? %>
+        Currently there's no movies in DCCinema, please come back later
+    <% end %>
 
 </div>
