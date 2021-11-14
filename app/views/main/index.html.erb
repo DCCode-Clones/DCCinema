@@ -1,18 +1,77 @@
 <div class="center-class">
     <h1> Welcome to the DCCinema </h1>
-    <% unless @movies.empty? %>
-        <h4> Select a day to see available movies </h4>
-        <form action="/day" method="get">
-            <select name="day" id="day">
-                <% @days.each do |day| %>
-                    <option value=<%= day %>><%= day %></option>
-                <% end %>
-            </select>
-            <input type="submit" value="See Movies">
-        </form>
-    <% end %>
-    <% if @movies.empty? %>
-        Currently there's no movies in DCCinema, please come back later
-    <% end %>
+    <% if @movies.blank? %>
+        <div class="center-class">
+            <h1> Currently there's no movies in DCCinema, please come back later </h1>
+        </div>
+        <div class="center-class">
+            <form action="/movies/new" method="get">
+                <input type="submit" class='enableOnInput' value="Create ">
+            </form>
+        </div>
+        <div class="center-class">
+            <form action="/" method="get">
+                <label for="day">Choose a day:</label>
+                <select name="day" id="day" required>
+                    <option value=<%= @current_date %>><%= @current_date %></option>
+                    <% @days.each do |day| %> <!-- hide current date -->
+                        <% if day != @current_date %>
+                            <option value=<%= day %>><%= day %></option>
+                        <% end %>
+                    <% end %>
+                </select>
+                <input type="submit" class='enableOnInput' value="See Movies">
+            </form>
+        </div>
+    <% else %>
+        <div class="center-class">
+            <form action="/movies/new" method="get">
+                <input type="submit" class='enableOnInput' value="Create ">
+            </form>
+        </div>
+        <div class="center-class">
+            <h1>These are the current movies in the cinema:</h1>
+            <form action="/" method="get">
+                <label for="day">Choose a day:</label>
+                <select name="day" id="day" required>
+                    <option value=<%= @current_date %>><%= @current_date %></option>
+                    <% @days.each do |day| %> <!-- hide current date -->
+                        <% if day != @current_date %>
+                            <option value=<%= day %>><%= day %></option>
+                        <% end %>
+                    <% end %>
+                </select>
+                <input type="submit" class='enableOnInput' value="See Movies">
+            </form>
+        </div>
 
+        <div class="grid-container">
+            <% @movies.each do |movie| %>
+                <div class="grid-item">
+                    <div class="card">
+                        <img src=<%= movie.imgURL %> alt="Avatar" style="width:100%">
+                        <div class="container">
+                            <h2><b> <%= movie.name %> </b></h2>
+                            <p><b> Matine:
+                                <% @schedules_matine.each do |schedule| %>
+                                    <a href="#"> Sala <%= schedule.room %> </a>
+                                <% end %>
+                            </b></p>
+                            <p><b> Tanda:
+                                <% @schedules_tanda.each do |schedule| %>
+                                    <a href="#"> Sala <%= schedule.room %> </a>
+                                <% end %>
+                            </b></p>
+                            <p><b> Noche:
+                                <% @schedules_noche.each do |schedule| %>
+                                    <a href="#"> Sala <%= schedule.room %> </a>
+                                <% end %>
+                            </b></p>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+    <% end %>
 </div>
