@@ -5,6 +5,12 @@ class MoviesController < ApplicationController
   def create
     new_movie = Movie.create(movie_params)
     new_movie.save()
+    range_dates = (new_movie.start_date..new_movie.end_date).to_a
+    range_dates.each do |d|
+      puts params[:time]
+      new_schedule = Schedule.create(time: params[:time], room: params[:room], seats: (1..48).to_a, day: d, movie: new_movie)
+      new_schedule.save()
+    end
     redirect_to '/'
   end
 
