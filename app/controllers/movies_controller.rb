@@ -1,15 +1,16 @@
 class MoviesController < ApplicationController
   def new
-    @movie = Movie
   end
 
   def create
-    Movie.create(user_params)
+    new_movie = Movie.create(movie_params)
+    new_movie.save()
+    redirect_to '/'
   end
 
   private
 
   def movie_params
-    params.require(:movie).permit(:name, :imgURL, :start_date, :end_date)
+    params.permit(:name, :imgURL, :start_date, :end_date)
   end
 end

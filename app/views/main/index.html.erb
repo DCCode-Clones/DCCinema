@@ -4,6 +4,25 @@
         <div class="center-class">
             <h1> Currently there's no movies in DCCinema, please come back later </h1>
         </div>
+        <div class="center-class">
+            <form action="/movies/new" method="get">
+                <input type="submit" class='enableOnInput' value="Create ">
+            </form>
+        </div>
+        <div class="center-class">
+            <form action="/" method="get">
+                <label for="day">Choose a day:</label>
+                <select name="day" id="day" required>
+                    <option value=<%= @current_date %>><%= @current_date %></option>
+                    <% @days.each do |day| %> <!-- hide current date -->
+                        <% if day != @current_date %>
+                            <option value=<%= day %>><%= day %></option>
+                        <% end %>
+                    <% end %>
+                </select>
+                <input type="submit" class='enableOnInput' value="See Movies">
+            </form>
+        </div>
     <% else %>
         <div class="center-class">
             <form action="/movies/new" method="get">
