@@ -54,17 +54,17 @@
                             <h2><b> <%= movie.name %> </b></h2>
                             <p><b> Matine:
                                 <% @schedules_matine.each do |schedule| %>
-                                    <a href="#"> Sala <%= schedule.room %> </a>
-                                <% end %>
+                                    <td><%= link_to 'Sala ' + schedule.room.to_s, schedule %></td>  
+                                    <% end %>
                             </b></p>
                             <p><b> Tanda:
                                 <% @schedules_tanda.each do |schedule| %>
-                                    <a href="#"> Sala <%= schedule.room %> </a>
+                                    <td><%= link_to 'Sala ' + schedule.room.to_s, schedule %></td>  
                                 <% end %>
                             </b></p>
                             <p><b> Noche:
                                 <% @schedules_noche.each do |schedule| %>
-                                    <a href="#"> Sala <%= schedule.room %> </a>
+                                    <td><%= link_to 'Sala ' + schedule.room.to_s, schedule %></td>  
                                 <% end %>
                             </b></p>
                         </div>

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get 'main', to: 'main#index'
   get 'movies/new', to: 'movies#new'
   post 'movies/create', to: 'movies#create'
+  get 'schedules/:id', to: 'schedules#show'
+  resources :schedules
 end

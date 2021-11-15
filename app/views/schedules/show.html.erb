@@ -1,0 +1,13 @@
+<h1> Schedule for <%= @movie.name %> on <%= @schedule.day %> </h1>
+<h1> At <%= @schedule.time %> time </h1>
+<h1> In room <%= @schedule.room %> </h1>
+
+<div class="grid-cinema">
+    <% for i in 1..48 do %>
+        <% if @schedule.seats[i-1] == 0 %>
+            <div class="grid-item-available"><%= i %></div>
+        <% else %>
+            <div class="grid-item-unavailable"><%= i %></div>
+        <% end %>
+    <% end %>
+</div>
