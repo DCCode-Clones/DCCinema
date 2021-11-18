@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get 'movies/new', to: 'movies#new'
   post 'movies/create', to: 'movies#create'
   get 'schedules/:id', to: 'schedules#show'
+  patch 'schedules/:id/reserve', to: 'schedules#reserve'
   resources :schedules
 end

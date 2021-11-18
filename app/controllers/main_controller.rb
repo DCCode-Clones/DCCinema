@@ -5,12 +5,12 @@ class MainController < ApplicationController
         @current_date = Date.current
 
         unless @movies.empty?
-          start_day = @movies.map { |movie| movie.start_date }.sort.first
           end_day = @movies.map { |movie| movie.end_date }.sort.last
-          @days = (start_day..end_day).to_a
+          @days = (@current_date..end_day).to_a
 
           @selected_day = params[:day]
           if @selected_day
+            @selected_day = Date.strptime(@selected_day, "%Y-%m-%d")
             @movies = Movie.where("start_date <= ? AND end_date >= ?", @selected_day, @selected_day)
             @schedules_matine = Schedule.where("day = ? AND time = ?", @selected_day, 'matine')
             @schedules_tanda = Schedule.where("day = ? AND time = ?", @selected_day, 'tanda')

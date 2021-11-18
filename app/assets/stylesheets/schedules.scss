@@ -4,8 +4,7 @@
 
 .grid-cinema {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
-    background-color: #d68fe4;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
     padding: 10px;
     row-gap: 20px;
   }
@@ -22,4 +21,39 @@
     padding: 20px;
     font-size: 30px;
     text-align: center;
+}
+
+.screen {
+  background-color: rgba(186, 199, 70, 0.8);
+  width: 94%;
+  height: 30px;
+  text-align: center;
+  margin-left: 5%;
+}
+
+.corridor {
+  background-color: rgba(48, 128, 194, 0.8);
+  width: 90%;
+  height: 100%;
+  text-align: center;
+}
+
+.grid-room {
+  display: grid;
+  background-color: rgba(115, 160, 185, 0.8);
+  grid-template-columns: 10% 80% 10%;
+  padding: 10px;
+  row-gap: 20px;
+}
+
+#corridor1 {
+  margin-top: 100%;
+  padding-right: 50%;
+  transform: rotate(270deg);
+}
+
+#corridor2 {
+  margin-top: 100%;
+  transform: rotate(90deg);
+  padding-left: 50%;
 }
