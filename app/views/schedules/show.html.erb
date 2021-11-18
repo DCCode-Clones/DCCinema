@@ -2,6 +2,13 @@
   <h1> Schedule for <%= @movie.name %> on <%= @schedule.day %> </h1>
   <h1> At <%= @schedule.time %> time </h1>
   <h1> In room <%= @schedule.room %> </h1>
+  <p> <% params %> </p>
+  <% if params[:row] %>
+    <h3> Asientos reservados con exito <% params[:row] %></h3>
+  <% end %>
+  <% if @occupied_seats %>
+    <h3> Asientos ocupados</h3>
+  <% end %>
 </div>
 <div class="grid-room">  
   <div class="corridor">
