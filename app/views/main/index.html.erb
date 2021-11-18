@@ -37,7 +37,11 @@
                     <option value=<%= @current_date %>><%= @current_date %></option>
                     <% @days.each do |day| %> <!-- hide current date -->
                         <% if day != @current_date %>
-                            <option value=<%= day %>><%= day %></option>
+                            <% if day == @selected_day %>
+                                <option value=<%= day %> selected><%= day %></option>
+                            <% else %>
+                                <option value=<%= day %>><%= day %></option>
+                            <% end %>
                         <% end %>
                     <% end %>
                 </select>

@@ -2,39 +2,53 @@
 <h1> At <%= @schedule.time %> time </h1>
 <h1> In room <%= @schedule.room %> </h1>
 
-<div class="grid-cinema">
-  <% rows = [*?A..?D] %>
-  <% for i in 0..3 do %>
-    <% for j in 1..12 do %>
-      <% if @schedule.seats[i][j] == 0 %>
-        <div class="grid-item-available"><%= "#{rows[i]}#{j}" %></div>
-      <% else %>
-        <div class="grid-item-unavailable"><%= "#{rows[i]}#{j}" %></div>
+<div class="grid-room">  
+  <div class="corridor">
+    <h2 id="corridor1">Corridor</h2>
+  </div>
+  <div>
+    <div class="grid-cinema">
+      <% rows = [*?A..?D] %>
+      <% for i in 0..3 do %>
+        <div><h2><strong><%= rows[i] %></strong></h2></div>
+        <% for j in 1..12 do %>
+          <% if @schedule.seats[i][j-1] == 0 %>
+            <div class="grid-item-available"><%= "#{j}" %></div>
+          <% else %>
+            <div class="grid-item-unavailable"><%= "#{j}" %></div>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
+    </div>
+    <div class="screen">
+      <h2>Screen</h2>
+    </div>
+  </div>
+  <div class="corridor">
+    <h2 id="corridor2">Corridor</h2>
+  </div>
 </div>
 <div class="box">
   <div>
-    <h2>Reservar asientos</h2>
+    <h2>Reserve seats</h2>
   </div>
   <%= form_with url: "/schedules/#{@schedule.id}/reserve", method: :patch do |form| %>
     <div>
-      <label class="label"> Seleccione la fila </label>
-      <% for i in 1..4 do %>
-        <%= form.radio_button :row, i-1 %>
-        <%= form.label :row, rows[i-1] %>
+      <label class="label"> Select row </label>
+      <% for i in 0..3 do %>
+        <%= form.radio_button :row, i %>
+        <%= form.label :row, rows[i] %>
       <% end %>
     </div>
     <div>
-      <label class="label"> Seleccione el número de asiento </label>
+      <label class="label"> Select seats number </label>
       <% for i in 0..11 do %>
-        <%= form.check_box :seats, {multiple: true}, 1, 0 %>
+        <%= form.check_box :seats, {multiple: true}, i, nil %>
         <%= form.label :seats, i + 1 %>
       <% end %>
     </div>
     <div class="column is-offset-5">
-            <%= form.submit "Enviar", class: 'button is-primary'%>
-        </div>
+      <%= form.submit "Enviar", class: 'button is-primary'%>
+    </div>
   <% end %>
 </div>
