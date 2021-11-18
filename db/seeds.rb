@@ -12,4 +12,22 @@ movies = Movie.create([{ name: 'Star Wars', imgURL: "https://i.blogs.es/26ba45/s
                     { name: 'Spiderman', imgURL: "https://upload.wikimedia.org/wikipedia/commons/9/90/Spiderman.JPG", start_date: Date.current, end_date: Date.tomorrow }])
 
 schedules = Schedule.create([{ time: "matine", room: 1, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies.first },
-                            { time: "matine", room: 2, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies.first }])
+                            { time: "matine", room: 2, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies.first },
+                            { time: "noche", room: 2, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies.first },
+                            { time: "tanda", room: 2, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies.first },
+                            { time: "tanda", room: 3, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies.first },
+                            { time: "tanda", room: 1, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies.first }])
+
+schedules_2 = Schedule.create([{ time: "matine", room: 3, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[1] },
+                            { time: "matine", room: 4, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[1] },
+                            { time: "noche", room: 3, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[1] },
+                            { time: "tanda", room: 4, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[1] },
+                            { time: "tanda", room: 5, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[1] },
+                            { time: "tanda", room: 1, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[1] }])
+
+schedules_3 = Schedule.create([{ time: "matine", room: 5, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[2] },
+                            { time: "matine", room: 6, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[2] },
+                            { time: "noche", room: 8, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[2] },
+                            { time: "tanda", room: 6, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[2] },
+                            { time: "tanda", room: 7, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[2] },
+                            { time: "tanda", room: 8, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[2] }])

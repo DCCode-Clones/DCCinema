@@ -1,7 +1,8 @@
-<h1> Schedule for <%= @movie.name %> on <%= @schedule.day %> </h1>
-<h1> At <%= @schedule.time %> time </h1>
-<h1> In room <%= @schedule.room %> </h1>
-
+<div class="center-class">
+  <h1> Schedule for <%= @movie.name %> on <%= @schedule.day %> </h1>
+  <h1> At <%= @schedule.time %> time </h1>
+  <h1> In room <%= @schedule.room %> </h1>
+</div>
 <div class="grid-room">  
   <div class="corridor">
     <h2 id="corridor1">Corridor</h2>
@@ -41,14 +42,14 @@
       <% end %>
     </div>
     <div>
-      <label class="label"> Select seats number </label>
+      <label class="label"> Select seats numbers </label>
       <% for i in 0..11 do %>
         <%= form.check_box :seats, {multiple: true}, i, nil %>
         <%= form.label :seats, i + 1 %>
       <% end %>
     </div>
     <div class="column is-offset-5">
-      <%= form.submit "Enviar", class: 'button is-primary'%>
+      <%= form.submit "Reserve", class: 'button is-primary'%>
     </div>
   <% end %>
 </div>
