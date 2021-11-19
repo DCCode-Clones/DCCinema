@@ -3,13 +3,16 @@ class SchedulesController < ApplicationController
     @schedule = Schedule.find_by(id: params[:id])
     @movie = @schedule.movie
     @reservation_error =  session[:reservation_error] 
+    @invalid_input =  session[:invalid_input] 
   end
 
   def reserve
     movie_params
     @schedule = Schedule.find_by(id: params[:id])
     session[:reservation_error] = false
-    if !params["seats"]
+    session[:invalid_input] = false
+    if !params["seats"] || !params["row"]
+      session[:invalid_input] = true
       redirect_to "/schedules/#{@schedule.id}"  and return
     end
     params["seats"].each do |seat|
