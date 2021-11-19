@@ -51,5 +51,13 @@
     <div class="column is-offset-5">
       <%= form.submit "Reserve", class: 'button is-primary'%>
     </div>
+    <% if @reservation_error%>
+           <label class="label" style="color: #FF0000"> The request of reservation is invalid </label>
+           <%session[:reservation_error] = false%>
+    <% end %>
+    <% if @invalid_input%>
+           <label class="label" style="color: #FF0000"> You need to select rows and seats number </label>
+           <%session[:invalid_input] = false%>
+    <% end %>
   <% end %>
 </div>
