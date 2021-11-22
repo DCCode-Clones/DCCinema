@@ -50,5 +50,5 @@ rails db:migrate:reset
 ...
 to run tests
 ```ruby
-rspec 
+rspec spec/tests.rb
 ```
