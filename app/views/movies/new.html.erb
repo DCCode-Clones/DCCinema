@@ -1,34 +1,44 @@
-<h1 class="form-title"> Create a new movie function </h1>
-    <%= form_with url: "/movies/create", method: :post do |form| %>
-        <div class="box">
-            <div>
-                <label class="label">Name</label>
-                <%= form.text_field :name %>
-            </div>
-            <div>
-                <label class="label">Image URL</label>
-                <%= form.url_field :imgURL %>
-            </div>
+    <h1 class="form-title"> Create a new movie function </h1>
 
-            <div>
-                <label class="label">Start Date</label>
-                <%= form.date_field :start_date %>
-            </div>
-            <div>
-                <label class="label">End Date</label>
-                <%= form.date_field :end_date %>
-            </div>
-            <div>
-                <label class="label">Time</label>
-                <%= form.text_field :time %>
-            </div>
-            <div>
-                <label class="label">Room</label>
-                <%= form.number_field :room %>
-            </div>
-            <div class="column is-offset-5">
-                <%= form.submit "Create", class: 'button is-primary'%>
-            </div>
+<%= form_with url: "/movies/create", method: :post do |form| %>
+    <div class="box">
+        <div>
+            <label class="label">Name</label>
+            <%= form.text_field :name %>
         </div>
+        <div>
+            <label class="label">Image URL</label>
+            <%= form.url_field :imgURL %>
+        </div>
+
+        <div>
+            <label class="label">Start Date</label>
+            <%= form.date_field :start_date %>
+        </div>
+        <div>
+            <label class="label">End Date</label>
+            <%= form.date_field :end_date %>
+        </div>
+        <div>
+            <% rows = ["matine", "tanda", "noche"] %>
+            <% for i in 0..2 do %>
+                <div><h2><strong><%= rows[i] %></strong></h2></div>
+                <% for j in 0..7 do %>
+                    <div>
+                        <%= form.check_box :rooms, {multiple: true}, "#{i} #{j + 1}", nil %>
+                            Sala <%= form.label :rooms, j + 1 %>
+                    </div>
+                    <br>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="column is-offset-5">
+            <%= form.submit "Create", class: 'button is-primary'%>
+        </div>
+         <% if @reservation_error%>
+           <label class="label" style="color: #FF0000"> One of the rooms was occupied for that day and time </label>
+           <%session[:reservation_error] = false%>
     <% end %>
+    </div>
+<% end %>
 
