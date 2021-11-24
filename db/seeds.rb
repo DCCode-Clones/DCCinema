@@ -21,6 +21,7 @@ schedules = Schedule.create([{ time: "matine", room: 1, seats: Array.new(4) { Ar
 schedules_2 = Schedule.create([{ time: "matine", room: 3, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[1] },
                             { time: "matine", room: 4, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[1] },
                             { time: "noche", room: 3, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[1] },
+                            { time: "noche", room: 3, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[1] },
                             { time: "tanda", room: 4, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[1] },
                             { time: "tanda", room: 5, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[1] },
                             { time: "tanda", room: 1, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[1] }])
