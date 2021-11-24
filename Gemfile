@@ -52,6 +52,9 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rspec'
+  gem 'rspec-rails'
+
 end
 
 group :test do
@@ -60,6 +63,7 @@ group :test do
   gem 'database_cleaner'
   gem 'rake'
   gem 'rspec'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
   # Easy installation and use of web drivers to run system tests with browsers

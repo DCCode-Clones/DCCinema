@@ -48,3 +48,7 @@ rails db:migrate:reset
 
 ## Run the test suite
 ...
+to run tests
+```ruby
+rspec spec/tests.rb
+```
