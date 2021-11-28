@@ -9,7 +9,9 @@
 
 movies = Movie.create([{ name: 'Star Wars', imgURL: "https://i.blogs.es/26ba45/star-wars-eras/1366_2000.jpeg", start_date: Date.current, end_date: Date.tomorrow },
                     { name: 'Los Simpsons', imgURL: "https://phantom-marca.unidadeditorial.es/ff129bbe4e38ec6dd131e989f544d6bf/resize/1320/f/jpg/assets/multimedia/imagenes/2021/03/04/16148576621458.jpg", start_date: Date.current, end_date: Date.tomorrow },
-                    { name: 'Spiderman', imgURL: "https://upload.wikimedia.org/wikipedia/commons/9/90/Spiderman.JPG", start_date: Date.current, end_date: Date.tomorrow }])
+                    { name: 'Spiderman', imgURL: "https://upload.wikimedia.org/wikipedia/commons/9/90/Spiderman.JPG", start_date: Date.current, end_date: Date.tomorrow },
+                    { name: 'La era del hielo', imgURL: "https://4.bp.blogspot.com/-p_-C91agVxw/WYXiXAlww9I/AAAAAAAAF0Q/8PhIaknQ5AEb-bOmoee4-rRNGtE3uKWKACLcBGAs/s1600/Ice%2BAge%2B-%2BLa%2Bedad%2Bdel%2Bhielo%2B-%2B%255Bfrontal%255D.jpg", start_date: Date.tomorrow, end_date: Date.tomorrow }])
+                    
 
 schedules = Schedule.create([{ time: "matine", room: 1, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies.first },
                             { time: "matine", room: 2, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies.first },
@@ -32,3 +34,9 @@ schedules_3 = Schedule.create([{ time: "matine", room: 5, seats: Array.new(4) { 
                             { time: "tanda", room: 6, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[2] },
                             { time: "tanda", room: 7, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[2] },
                             { time: "tanda", room: 8, seats: Array.new(4) { Array.new(12) {0} }, day: Date.current, movie: movies[2] }])
+
+schedules_4 = Schedule.create([{ time: "matine", room: 1, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[3] },
+                            { time: "matine", room: 3, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[3] },
+                            { time: "noche", room: 5, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[3] },
+                            { time: "noche", room: 6, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[3] },
+                            { time: "noche", room: 7, seats: Array.new(4) { Array.new(12) {0} }, day: Date.tomorrow, movie: movies[3] }])
